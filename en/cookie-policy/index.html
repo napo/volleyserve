@@ -1,0 +1,11 @@
+---
+layout: default
+lang: en
+permalink: /en/cookie-policy/
+title: "Cookie Policy — VolleyServe.it"
+description: "VolleyServe.it does not set any profiling or analytics cookies."
+---
+
+{% assign ui = site.data.ui[page.lang] %}
+{% assign doc = site.content | where: "lang", page.lang | where: "key", "cookie_policy" | first %}
+{% include simple-page.html title=ui.cookie_policy_heading body=doc.content %}

@@ -1,0 +1,34 @@
+{% assign ui = site.data.ui[page.lang] %}
+{% assign home_url = "/" %}
+{% if page.lang == "en" %}{% assign home_url = "/en/" %}{% endif %}
+
+<nav class="navbar navbar-expand-lg vs-navbar sticky-top" aria-label="{{ ui.nav_aria }}">
+  <div class="container">
+    <a class="navbar-brand" href="{{ home_url | relative_url }}">VolleyServe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vsNav"
+            aria-controls="vsNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="vsNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ home_url | relative_url }}#tools">{{ ui.nav_tools }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ home_url | relative_url }}#about">{{ ui.nav_about }}</a>
+        </li>
+        <li class="nav-item vs-lang-switch" aria-label="{{ ui.lang_switch_aria }}">
+          {% if page.lang == "en" %}
+            <a href="{{ '/' | relative_url }}" class="vs-lang-link" hreflang="it" lang="it">🇮🇹 IT</a>
+            <span aria-hidden="true">|</span>
+            <span class="vs-lang-current" aria-current="page">🇬🇧 EN</span>
+          {% else %}
+            <span class="vs-lang-current" aria-current="page">🇮🇹 IT</span>
+            <span aria-hidden="true">|</span>
+            <a href="{{ '/en/' | relative_url }}" class="vs-lang-link" hreflang="en" lang="en">🇬🇧 EN</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

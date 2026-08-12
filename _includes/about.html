@@ -1,0 +1,30 @@
+{% assign ui = site.data.ui[page.lang] %}
+{% assign about_doc = site.content | where: "lang", page.lang | where: "key", "about" | first %}
+
+<section class="vs-about" id="about" aria-label="{{ ui.about_heading }}">
+  <div class="container">
+    <h2 class="vs-about__heading">{{ ui.about_heading }}</h2>
+    <div class="vs-about__layout">
+      <img class="vs-about__photo" src="{{ '/assets/img/napo.jpg' | relative_url }}" alt="Maurizio Napolitano" width="210" height="210" loading="lazy">
+      <div class="vs-about__main">
+        <div class="vs-about__content">
+          {{ about_doc.content }}
+        </div>
+        <ul class="vs-about__links">
+          {% for link in site.data.social %}
+            <li><a href="{{ link.url }}" target="_blank" rel="noopener"><i class="bi {{ link.icon }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+
+        {% if site.data.support.paypal_url and site.data.support.paypal_url != "" %}
+          <p class="vs-about__support">
+            {{ ui.support_text }}
+            <a href="{{ site.data.support.paypal_url }}" target="_blank" rel="noopener" class="vs-support-btn">
+              <i class="bi bi-paypal" aria-hidden="true"></i> {{ ui.support_cta }}
+            </a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

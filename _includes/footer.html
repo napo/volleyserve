@@ -1,0 +1,24 @@
+{% assign footer_doc = site.content | where: "lang", page.lang | where: "key", "footer" | first %}
+{% assign ui = site.data.ui[page.lang] %}
+{% assign home_url = "/" %}
+{% if page.lang == "en" %}{% assign home_url = "/en/" %}{% endif %}
+
+<footer class="vs-footer">
+  <div class="container vs-footer__row">
+    <div class="vs-footer__text">
+      {{ footer_doc.content }}
+      <a href="{{ home_url | append: 'cookie-policy/' | relative_url }}" class="vs-footer__cookie-link">{{ ui.footer_cookie_link }}</a>
+    </div>
+    <nav aria-label="{{ ui.lang_switch_aria }}" class="vs-lang-switch">
+      {% if page.lang == "en" %}
+        <a href="{{ '/' | relative_url }}" class="vs-lang-link" hreflang="it" lang="it">🇮🇹 IT</a>
+        <span aria-hidden="true">|</span>
+        <span class="vs-lang-current" aria-current="page">🇬🇧 EN</span>
+      {% else %}
+        <span class="vs-lang-current" aria-current="page">🇮🇹 IT</span>
+        <span aria-hidden="true">|</span>
+        <a href="{{ '/en/' | relative_url }}" class="vs-lang-link" hreflang="en" lang="en">🇬🇧 EN</a>
+      {% endif %}
+    </nav>
+  </div>
+</footer>

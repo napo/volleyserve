@@ -1,0 +1,50 @@
+# Stringhe brevi di interfaccia (non editoriali), per lingua.
+# Usate da _includes/*.html tramite site.data.ui[page.lang].
+# I testi editoriali lunghi (hero, about, footer) restano nei Markdown
+# della collection "content" (_content/<lang>/*.md), non qui.
+
+it:
+  skip_to_content: "Vai al contenuto"
+  nav_aria: "Navigazione principale"
+  nav_tools: "Tools"
+  nav_about: "About"
+  lang_switch_aria: "Cambia lingua"
+
+  home_eyebrow: "Volley. Serve. It."
+  tools_heading: "Tools"
+  about_heading: "About"
+
+  cta_open: "Apri"
+  badge_experimental: "Sperimentale"
+  external_link_note: "(apre in una nuova scheda)"
+  github_label: "Codice su GitHub"
+
+  cookie_policy_heading: "Cookie policy"
+  footer_cookie_link: "Cookie policy"
+  back_home: "Torna alla home"
+
+  support_text: "Se ti piace il progetto, sostienilo."
+  support_cta: "Dona con PayPal"
+
+en:
+  skip_to_content: "Skip to content"
+  nav_aria: "Main navigation"
+  nav_tools: "Tools"
+  nav_about: "About"
+  lang_switch_aria: "Switch language"
+
+  home_eyebrow: "Volley. Serve. It."
+  tools_heading: "Tools"
+  about_heading: "About"
+
+  cta_open: "Open"
+  badge_experimental: "Experimental"
+  external_link_note: "(opens in a new tab)"
+  github_label: "Code on GitHub"
+
+  cookie_policy_heading: "Cookie Policy"
+  footer_cookie_link: "Cookie policy"
+  back_home: "Back to home"
+
+  support_text: "If you like the project, support it."
+  support_cta: "Donate with PayPal"

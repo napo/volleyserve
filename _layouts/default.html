@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F4F4">
+
+  {% seo %}
+
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+  <link rel="alternate" hreflang="it" href="{{ '/' | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+
+  <link rel="preload" href="{{ '/assets/fonts/roboto-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/montserrat-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <a class="vs-skip-link visually-hidden-focusable" href="#main">{{ site.data.ui[page.lang].skip_to_content }}</a>
+
+  {% include navbar.html %}
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% assign ui = site.data.ui[page.lang] %}
+{% assign tools = site.data.tools | where_exp: "t", "t.status != 'hidden'" | sort: "order" %}
+
+<section class="vs-tools" id="tools" aria-label="{{ ui.tools_heading }}">
+  <div class="container">
+    <h2 class="vs-tools__heading">{{ ui.tools_heading }}</h2>
+
+    <div class="row g-4">
+      {% for tool in tools %}
+        <div class="col-12 col-md-6">
+          {% include tool-card.html tool=tool %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

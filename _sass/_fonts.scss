@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------
+// Font self-hosted in assets/fonts/ (nessuna richiesta a fonts.googleapis.com
+// o fonts.gstatic.com a runtime). File woff2 variabili: un solo file per
+// famiglia copre l'intero intervallo di pesi usato nel sito.
+// -----------------------------------------------------------------------
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("/assets/fonts/montserrat-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("/assets/fonts/rubik-latin.woff2") format("woff2");
+}

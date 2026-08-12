@@ -1,0 +1,8 @@
+# Link di sostegno/donazione. Lasciare "" per non mostrare alcun pulsante:
+# gli include controllano questo valore e non renderizzano nulla se vuoto,
+# quindi non c'e' rischio di pubblicare un bottone rotto.
+#
+# Formati accettati:
+#   - "https://paypal.me/tuonome"
+#   - "https://www.paypal.com/donate/?business=tuaemail@esempio.it&currency_code=EUR"
+paypal_url: "https://paypal.me/MNapolitano570"

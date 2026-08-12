@@ -1,0 +1,12 @@
+{% assign home_url = "/" %}
+{% if page.lang == "en" %}{% assign home_url = "/en/" %}{% endif %}
+
+<section class="vs-simple-page">
+  <div class="container">
+    <h1 class="vs-simple-page__title">{{ include.title }}</h1>
+    <div class="vs-simple-page__content">
+      {{ include.body }}
+    </div>
+    <a class="vs-link-arrow" href="{{ home_url | relative_url }}">← {{ site.data.ui[page.lang].back_home }}</a>
+  </div>
+</section>

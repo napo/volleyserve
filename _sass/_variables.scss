@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------
+// Palette e tipografia centralizzate di VolleyServe.it.
+// Stessi colori del template Bootstrap "Landia" (BootstrapMade), scritti
+// qui da zero (nessun CSS/asset di Landia copiato): fondo chiaro, card
+// bianche, un solo accento blu-notte molto scuro. Font-pairing dello
+// stesso template: Roboto (testo), Montserrat (titoli), Rubik (nav),
+// da Google Fonts.
+// -----------------------------------------------------------------------
+
+:root {
+  --vs-bg: #F4F4F4;
+  --vs-surface: #FFFFFF;
+  --vs-border: rgba(1, 22, 39, 0.10);
+
+  --vs-text: #505050;
+  --vs-heading: #383838;
+  --vs-muted: #7D7D7D;
+
+  --vs-accent: #011627;
+  --vs-accent-contrast: #FFFFFF;
+
+  --vs-font-heading: "Montserrat", var(--vs-font-sans);
+  --vs-font-nav: "Rubik", var(--vs-font-sans);
+  --vs-font-sans: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+  --vs-radius: 0.75rem;
+  --vs-container-max: 1180px;
+
+  // Riallineiamo le principali custom property di Bootstrap 5.3 al tema.
+  --bs-body-bg: var(--vs-bg);
+  --bs-body-color: var(--vs-text);
+  --bs-primary: var(--vs-accent);
+  --bs-primary-rgb: 1, 22, 39;
+  --bs-link-color: var(--vs-accent);
+  --bs-link-hover-color: #03304F;
+  --bs-link-color-rgb: 1, 22, 39;
+  --bs-link-hover-color-rgb: 3, 48, 79;
+  --bs-body-font-family: var(--vs-font-sans);
+  --bs-border-color: var(--vs-border);
+}

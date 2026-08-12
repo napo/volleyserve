@@ -1,0 +1,36 @@
+{% assign ui = site.data.ui[page.lang] %}
+{% assign lang = page.lang %}
+
+{% assign title_key = "title_" | append: lang %}
+{% assign desc_key = "description_" | append: lang %}
+{% assign alt_key = "alt_" | append: lang %}
+
+{% assign title = tool[title_key] %}
+{% assign description = tool[desc_key] %}
+{% assign alt = tool[alt_key] %}
+
+<article class="tool-card{% if tool.status == 'experimental' %} tool-card--experimental{% endif %}">
+  <div class="tool-card__media">
+    <img src="{{ tool.image | relative_url }}" alt="{{ alt }}" loading="lazy" width="800" height="500">
+  </div>
+  <div class="tool-card__body">
+    <h3 class="tool-card__title">
+      <a class="tool-card__link" href="{{ tool.url }}" target="_blank" rel="noopener">
+        {{ title }}
+        <span class="visually-hidden">{{ ui.external_link_note }}</span>
+      </a>
+    </h3>
+    <p class="tool-card__desc">{{ description }}</p>
+    <div class="tool-card__meta">
+      <span class="tool-card__cta" aria-hidden="true">{{ ui.cta_open }} →</span>
+      {% if tool.status == "experimental" %}
+        <span class="tool-card__badge">{{ ui.badge_experimental }}</span>
+      {% endif %}
+      {% if tool.github and tool.github != "" %}
+        <a class="tool-card__github" href="{{ tool.github }}" target="_blank" rel="noopener">
+          {{ ui.github_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

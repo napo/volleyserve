@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# Configurazione TECNICA di Jekyll per VolleyServe.it
+#
+# Questo file non deve contenere testi editoriali (titoli, slogan, descrizioni
+# lunghe, ecc.). I contenuti editoriali vivono nella collection "content"
+# (cartella _content/<lang>/*.md) e nelle pagine it/en; il catalogo dei tool
+# vive in _data/tools.csv; le stringhe brevi di interfaccia vivono in
+# _data/ui.yml. Vedi README/riepilogo di implementazione per i dettagli.
+# ---------------------------------------------------------------------------
+
+title: "VolleyServe.it"
+url: "https://volleyserve.it"
+baseurl: ""
+twitter:
+  card: summary_large_image
+
+# La gemma "github-pages" applica di default il tema "jekyll-theme-primer"
+# quando "theme" non e' impostato. VolleyServe usa un layout/CSS propri,
+# quindi disabilitiamo esplicitamente qualunque tema di default.
+theme: null
+
+lang: it
+languages: ["it", "en"]
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# La collection "content" ospita i testi editoriali (hero, intro, about,
+# footer) in Markdown, uno per lingua. output:false: non genera pagine HTML
+# proprie, i testi vengono inclusi via Liquid nei template esistenti.
+collections:
+  content:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "content"
+    values:
+      layout: null
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      image: "/assets/img/og-image.png"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules
+  - "*.gemspec"
+  - ".github"
+
+sass_dir: _sass

@@ -1,0 +1,524 @@
+---
+# Front matter vuoto: dice a Jekyll di processare questo file come Sass.
+---
+@import "variables";
+@import "fonts";
+
+// =========================================================================
+// Base
+// =========================================================================
+
+body {
+  background: var(--vs-bg);
+  color: var(--vs-text);
+  font-family: var(--vs-font-sans);
+}
+
+h1, h2, h3 {
+  font-family: var(--vs-font-heading);
+  color: var(--vs-heading);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--vs-accent);
+}
+a:hover,
+a:focus {
+  color: #03304F;
+}
+
+a:focus-visible,
+button:focus-visible,
+.tool-card__link:focus-visible,
+.navbar-toggler:focus-visible {
+  outline: 3px solid var(--vs-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.vs-skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 1080;
+  background: var(--vs-accent);
+  color: var(--vs-accent-contrast);
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.15s ease;
+}
+.vs-skip-link:focus {
+  top: 0;
+}
+
+.container {
+  max-width: var(--vs-container-max);
+}
+
+section {
+  scroll-margin-top: 4.5rem;
+}
+
+.vs-link-arrow {
+  display: inline-block;
+  color: var(--vs-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.vs-link-arrow:hover,
+.vs-link-arrow:focus {
+  text-decoration: underline;
+}
+
+// =========================================================================
+// Brand mark ("VolleyServe")
+// =========================================================================
+
+.vs-brand {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  color: var(--vs-heading);
+}
+
+// =========================================================================
+// Navbar
+// =========================================================================
+
+.vs-navbar {
+  background: rgba(244, 244, 244, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--vs-border);
+
+  .navbar-brand {
+    font-family: var(--vs-font-nav);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 1.15rem;
+    color: var(--vs-heading);
+  }
+
+  .navbar-toggler {
+    border-color: var(--vs-border);
+    color: var(--vs-text);
+  }
+
+  .nav-link {
+    font-family: var(--vs-font-nav);
+    color: var(--vs-text);
+    font-weight: 500;
+  }
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--vs-accent);
+  }
+}
+
+.vs-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  margin-left: 0.25rem;
+
+  a, span {
+    padding: 0.25rem 0.35rem;
+  }
+  .vs-lang-current {
+    font-weight: 700;
+    color: var(--vs-heading);
+  }
+  .vs-lang-link {
+    text-decoration: none;
+    color: var(--vs-muted);
+    border-radius: 0.35rem;
+  }
+  .vs-lang-link:hover,
+  .vs-lang-link:focus {
+    color: var(--vs-accent);
+    background: rgba(1, 22, 39, 0.08);
+  }
+}
+
+// =========================================================================
+// Hero
+// =========================================================================
+
+.vs-hero {
+  padding: 6rem 0 4.5rem;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba(1, 22, 39, 0.06), transparent 60%);
+
+  &__eyebrow {
+    font-family: var(--vs-font-nav);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    color: var(--vs-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  &__brand {
+    font-size: clamp(2.25rem, 8vw, 4.5rem);
+  }
+
+  &__tagline {
+    max-width: 42rem;
+    margin-top: 1.5rem;
+
+    p:first-child {
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--vs-heading);
+      font-family: var(--vs-font-heading);
+    }
+    p {
+      color: var(--vs-muted);
+      font-size: 1.05rem;
+    }
+  }
+}
+
+// =========================================================================
+// Tools / Portfolio
+// =========================================================================
+
+.vs-tools {
+  padding: 1rem 0 4.5rem;
+
+  &__heading {
+    margin-bottom: 2rem;
+  }
+}
+
+.tool-card {
+  position: relative;
+  display: block;
+  border-radius: var(--vs-radius);
+  overflow: hidden;
+  background: var(--vs-surface);
+  border: 1px solid var(--vs-border);
+  box-shadow: 0 1px 3px rgba(1, 22, 39, 0.06);
+  isolation: isolate;
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+// Lo stato "nascosto in attesa di comparire" esiste solo se main.js e' girato
+// (classe .js su <html>, aggiunta subito nell'head): senza JavaScript le
+// card restano sempre visibili, nessun contenuto dipende dallo script.
+.js .tool-card {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.tool-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tool-card:hover {
+  border-color: color-mix(in srgb, var(--vs-accent), transparent 60%);
+  box-shadow: 0 10px 26px rgba(1, 22, 39, 0.14);
+  transform: translateY(-4px);
+}
+.tool-card.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+.tool-card__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--vs-surface), var(--vs-bg));
+}
+
+.tool-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.tool-card:hover .tool-card__media img {
+  transform: scale(1.04);
+}
+
+.tool-card__body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  color: #fff;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(to top, rgba(1, 10, 18, 0.94) 0%, rgba(1, 10, 18, 0.75) 55%, rgba(1, 10, 18, 0) 100%);
+  transform: translateY(calc(100% - 4.2rem));
+  transition: transform 0.25s ease;
+}
+
+.tool-card:hover .tool-card__body,
+.tool-card:focus-within .tool-card__body {
+  transform: translateY(0);
+}
+
+.tool-card__title {
+  font-family: var(--vs-font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.tool-card__link {
+  color: #fff;
+  text-decoration: none;
+}
+.tool-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tool-card__desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 0.6rem;
+  max-width: 34rem;
+}
+
+.tool-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.tool-card__cta {
+  color: var(--vs-accent-contrast);
+  background: var(--vs-accent);
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.3rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.tool-card__github {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tool-card__github:hover,
+.tool-card__github:focus {
+  color: #fff;
+}
+
+.tool-card__badge {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  color: var(--vs-accent);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+@media (hover: none) {
+  .tool-card__body {
+    position: static;
+    transform: none;
+    background: var(--vs-accent);
+  }
+  .tool-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card__body,
+  .tool-card__media img {
+    transition: none;
+  }
+  .js .tool-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// =========================================================================
+// About
+// =========================================================================
+
+.vs-about {
+  padding: 1rem 0 4.5rem;
+  border-top: 1px solid var(--vs-border);
+  padding-top: 3.5rem;
+
+  &__heading {
+    margin-bottom: 1.75rem;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  &__photo {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--vs-surface);
+    box-shadow: 0 0 0 1px var(--vs-border);
+    flex-shrink: 0;
+  }
+
+  &__content {
+    max-width: 42rem;
+    font-size: 1.05rem;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  &__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--vs-border);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--vs-text);
+    background: var(--vs-surface);
+  }
+  &__links a:hover,
+  &__links a:focus {
+    border-color: var(--vs-accent);
+    color: var(--vs-accent);
+  }
+
+  &__support {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--vs-border);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--vs-muted);
+    font-size: 0.95rem;
+  }
+}
+
+.vs-support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--vs-accent);
+  color: var(--vs-accent-contrast);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--vs-font-nav);
+  font-size: 0.9rem;
+}
+.vs-support-btn:hover,
+.vs-support-btn:focus {
+  background: #03304F;
+  color: var(--vs-accent-contrast);
+}
+
+// =========================================================================
+// Pagine semplici (Cookie policy, ecc.)
+// =========================================================================
+
+.vs-simple-page {
+  padding: 6rem 0 4.5rem;
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__content {
+    max-width: 42rem;
+    font-size: 1.02rem;
+    margin-bottom: 2rem;
+
+    p { margin-bottom: 1rem; }
+  }
+}
+
+// =========================================================================
+// Footer
+// =========================================================================
+
+.vs-footer {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--vs-border);
+  background: var(--vs-surface);
+  color: var(--vs-muted);
+  font-size: 0.9rem;
+
+  a {
+    color: var(--vs-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  a:hover,
+  a:focus {
+    color: var(--vs-accent);
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__cookie-link {
+    margin-left: 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+// =========================================================================
+// Responsive tweaks
+// =========================================================================
+
+@media (max-width: 375.98px) {
+  .vs-hero { padding: 3.5rem 0 2.5rem; }
+  .tool-card__body { transform: translateY(calc(100% - 3.7rem)); }
+}
+
+@media (min-width: 576px) {
+  .vs-about__layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .vs-about__photo {
+    width: 8rem;
+    height: 8rem;
+  }
+}

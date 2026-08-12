@@ -1,0 +1,12 @@
+{% assign ui = site.data.ui[page.lang] %}
+{% assign hero_doc = site.content | where: "lang", page.lang | where: "key", "hero" | first %}
+
+<header class="vs-hero" id="top">
+  <div class="container">
+    <p class="vs-hero__eyebrow">{{ ui.home_eyebrow }}</p>
+    <h1 class="vs-brand vs-hero__brand">VolleyServe</h1>
+    <div class="vs-hero__tagline">
+      {{ hero_doc.content }}
+    </div>
+  </div>
+</header>

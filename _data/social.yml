@@ -1,0 +1,15 @@
+# Link personali/di progetto, usati nella sezione About e nel footer.
+# Dati tecnici (URL), non testo editoriale: le etichette sono brevi label
+# di interfaccia, non prosa. "icon" e' il nome di una classe Bootstrap Icons.
+- id: linkedin
+  label: LinkedIn
+  icon: bi-linkedin
+  url: https://www.linkedin.com/in/napolnx/
+- id: github
+  label: GitHub
+  icon: bi-github
+  url: https://github.com/napo
+- id: repo
+  label: GitHub — volleyserve
+  icon: bi-github
+  url: https://github.com/napo/volleyserve
